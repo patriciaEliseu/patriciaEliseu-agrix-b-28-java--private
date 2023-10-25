@@ -97,7 +97,12 @@ public class FarmController {
     cropService.insertCrop(crop);
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(new CropDto(
-            crop.getId(), crop.getName(), crop.getPlantedArea(), crop.getFarm().getId()));
+            crop.getId(),
+            crop.getName(),
+            crop.getPlantedArea(),
+            crop.getPlantedDate(),
+            crop.getHarvestDate(),
+            crop.getFarm().getId()));
   }
 
 
