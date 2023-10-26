@@ -1,8 +1,8 @@
 package com.betrybe.agrix.ebytr.staff.service;
 
 import com.betrybe.agrix.ebytr.staff.models.entities.Crop;
-import com.betrybe.agrix.ebytr.staff.models.entities.Farm;
 import com.betrybe.agrix.ebytr.staff.models.repositories.CropRepository;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +33,9 @@ public class CropService {
 
   public Optional<Crop> getCropById(Long id) {
     return cropRepository.findById(id);
+  }
+
+  public List<Crop> getAllSearch(LocalDate start, LocalDate end) {
+    return cropRepository.findAll();
   }
 }

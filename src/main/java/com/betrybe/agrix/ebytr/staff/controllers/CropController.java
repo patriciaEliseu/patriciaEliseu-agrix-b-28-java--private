@@ -1,5 +1,6 @@
 package com.betrybe.agrix.ebytr.staff.controllers;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import static org.springframework.web.servlet.function.ServerResponse.status;
 
 import com.betrybe.agrix.ebytr.staff.controllers.dto.CropDto;
@@ -7,6 +8,7 @@ import com.betrybe.agrix.ebytr.staff.models.entities.Crop;
 import com.betrybe.agrix.ebytr.staff.models.entities.Farm;
 import com.betrybe.agrix.ebytr.staff.service.CropService;
 import com.betrybe.agrix.ebytr.staff.service.FarmService;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -72,6 +74,18 @@ public class CropController {
     }
 
     return optionalCrop.map(crop -> CropDto.toDto(crop)).get();
+  }
+
+  @GetMapping("/search")
+  public List<CropDto> getAllSearch(@RequestParam("start") LocalDate startDate, @RequestParam("end") LocalDate endDate) {
+    List<Crop> listSearch = farmService.getAllSearch(startDate, endDate);
+    return listSearch.stream().map(crop -> new CropDto(
+        crop.getId(),
+        crop.getName(),
+        crop.getPlantedArea(),
+        crop.getPlantedDate(),
+        crop.getHarvestDate(),
+        crop.getFarm().getId())).toList();
   }
 
 }
