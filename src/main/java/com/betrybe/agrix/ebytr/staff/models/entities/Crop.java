@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * class.
@@ -63,12 +64,10 @@ public class Crop {
     this.fertilizers = fertilizers;
   }
 
+  
   public Crop(
-      Long id,
-      String name,
-      Double plantedArea,
-      LocalDate plantedDate,
-      LocalDate harvestDate
+      Optional<Crop> crop,
+      String name
   ) {
   }
 

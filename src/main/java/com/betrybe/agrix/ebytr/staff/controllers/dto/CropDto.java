@@ -22,7 +22,7 @@ public record CropDto(
 
 
   public Crop toCrop() {
-    return new Crop(id, name, plantedArea, plantedDate, harvestDate);
+    return new Crop(id, name, plantedArea, plantedDate, harvestDate, null);
   }
 
 
