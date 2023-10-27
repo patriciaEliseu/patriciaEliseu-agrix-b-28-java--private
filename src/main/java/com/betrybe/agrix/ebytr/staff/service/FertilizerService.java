@@ -6,6 +6,7 @@ import com.betrybe.agrix.ebytr.staff.models.entities.Fertilizer;
 import com.betrybe.agrix.ebytr.staff.models.repositories.CropRepository;
 import com.betrybe.agrix.ebytr.staff.models.repositories.FertilizerRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /**
@@ -34,4 +35,9 @@ public class FertilizerService {
   public List<Fertilizer> getAllFertilizer() {
     return fertilizerRepository.findAll();
   }
+
+  public Optional<Fertilizer> getFertilizerById(Long id) {
+    return fertilizerRepository.findById(id);
+  }
+
 }
