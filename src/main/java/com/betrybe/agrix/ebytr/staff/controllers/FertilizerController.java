@@ -5,6 +5,8 @@ import com.betrybe.agrix.ebytr.staff.controllers.dto.FertilizersDto;
 import com.betrybe.agrix.ebytr.staff.models.entities.Fertilizer;
 import com.betrybe.agrix.ebytr.staff.service.CropService;
 import com.betrybe.agrix.ebytr.staff.service.FertilizerService;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,10 +45,21 @@ public class FertilizerController {
     return ResponseEntity.status(HttpStatus.CREATED).body(fertilizerCreate);
   }
 
-  //
-  //  /**
-  //   * GetFertilizer.
-  //   */
+
+  /**
+   * GetFertilizer.
+   */
+
+
+  @GetMapping()
+  public List<FertilizersDto> getAllFertilizer() {
+    List<Fertilizer> allFertilizer = fertilizerService.getAllFertilizer();
+    return allFertilizer.stream().map(fert -> new FertilizersDto(
+        fert.getId(),
+        fert.getName(),
+        fert.getBrand(),
+        fert.getComposition())).collect(Collectors.toList());
+  }
 
 
 }
