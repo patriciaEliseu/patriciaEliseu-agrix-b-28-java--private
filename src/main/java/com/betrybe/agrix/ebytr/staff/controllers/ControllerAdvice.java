@@ -20,11 +20,11 @@ public class ControllerAdvice {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error.getMessage());
   }
 
-//  @ExceptionHandler(Exception.class)
-//  public ResponseEntity<ResponseDto> handleException(Exception error) {
-//    ResponseDto responseDto = new ResponseDto(null, error.getMessage());
-//    return ResponseEntity.status(500).body(responseDto);
-//  }
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<ResponseDto> handleException(Exception error) {
+    ResponseDto responseDto = new ResponseDto(null, error.getMessage());
+    return ResponseEntity.status(500).body(responseDto);
+  }
 
 
 }

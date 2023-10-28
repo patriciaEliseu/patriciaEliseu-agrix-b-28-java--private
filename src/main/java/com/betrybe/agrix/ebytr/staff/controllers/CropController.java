@@ -1,11 +1,11 @@
 package com.betrybe.agrix.ebytr.staff.controllers;
 
-import com.betrybe.agrix.ebytr.staff.controllers.dto.FertilizersDto;
-import com.betrybe.agrix.ebytr.staff.models.entities.Fertilizer;
 import static org.springframework.web.servlet.function.ServerResponse.status;
 
 import com.betrybe.agrix.ebytr.staff.controllers.dto.CropDto;
+import com.betrybe.agrix.ebytr.staff.controllers.dto.FertilizersDto;
 import com.betrybe.agrix.ebytr.staff.models.entities.Crop;
+import com.betrybe.agrix.ebytr.staff.models.entities.Fertilizer;
 import com.betrybe.agrix.ebytr.staff.service.CropService;
 import com.betrybe.agrix.ebytr.staff.service.FarmService;
 import java.time.LocalDate;
@@ -116,20 +116,20 @@ public class CropController {
   }
 
 
-  /**
-   * get.
-   */
+  //  /**
+  //   * get.
+  //   */
 
-//
-//  @GetMapping("/{cropId}/fertilizers")
-//  public List<FertilizersDto> getAllFertilizerbyCropId(
-//      @PathVariable Long cropId
-//  ) throws CropNotFoundException {
-//    Optional<Fertilizer> allFertByCropId = cropService.getAllFertilizerByCropId(cropId);
-//    List<FertilizersDto> allFertByCropIdDto = allFertByCropId.stream()
-//        .map(FertilizersDto::toDto).collect(Collectors.toList());
-//    return ResponseEntity.ok(allFertByCropIdDto).getBody();
-//  }
+  //
+  //  @GetMapping("/{cropId}/fertilizers")
+  //  public List<FertilizersDto> getAllFertilizerbyCropId(
+  //      @PathVariable Long cropId
+  //  ) throws CropNotFoundException {
+  //    Optional<Fertilizer> allFertByCropId = cropService.getAllFertilizerByCropId(cropId);
+  //    List<FertilizersDto> allFertByCropIdDto = allFertByCropId.stream()
+  //        .map(FertilizersDto::toDto).collect(Collectors.toList());
+  //    return ResponseEntity.ok(allFertByCropIdDto).getBody();
+  //  }
 
 
 }
