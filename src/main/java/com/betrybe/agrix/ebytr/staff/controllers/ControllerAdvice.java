@@ -14,15 +14,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @org.springframework.web.bind.annotation.ControllerAdvice
 public class ControllerAdvice {
 
-  @ExceptionHandler(CustomError.class)
-  public ResponseEntity<String> handleException(CustomError error) {
+  @ExceptionHandler(RuntimeException.class)
+  public ResponseEntity<String> handleException(RuntimeException error) {
 
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error.getMessage());
   }
 
-  @ExceptionHandler(Exception.class)
-  public ResponseEntity<ResponseDto> handleException(Exception error) {
-    ResponseDto responseDto = new ResponseDto(null, error.getMessage());
-    return ResponseEntity.status(500).body(responseDto);
-  }
+//  @ExceptionHandler(Exception.class)
+//  public ResponseEntity<ResponseDto> handleException(Exception error) {
+//    ResponseDto responseDto = new ResponseDto(null, error.getMessage());
+//    return ResponseEntity.status(500).body(responseDto);
+//  }
+
+
 }
