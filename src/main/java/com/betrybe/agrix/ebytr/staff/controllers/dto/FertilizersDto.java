@@ -36,6 +36,19 @@ public record FertilizersDto(
         fertilizer.getComposition()
     );
   }
+
+  /**
+   * Método.
+   */
+
+  public static FertilizersDto toDto(Fertilizer fertilizer) {
+    return new FertilizersDto(
+        fertilizer.getId(),
+        fertilizer.getName(),
+        fertilizer.getBrand(),
+        fertilizer.getComposition()
+    );
+  }
 }
 
 

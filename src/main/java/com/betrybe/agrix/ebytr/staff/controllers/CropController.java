@@ -116,20 +116,24 @@ public class CropController {
   }
 
 
-  //  /**
-  //   * get.
-  //   */
+  /**
+   * Get.
+   */
 
-  //
-  //  @GetMapping("/{cropId}/fertilizers")
-  //  public List<FertilizersDto> getAllFertilizerbyCropId(
-  //      @PathVariable Long cropId
-  //  ) throws CropNotFoundException {
-  //    Optional<Fertilizer> allFertByCropId = cropService.getAllFertilizerByCropId(cropId);
-  //    List<FertilizersDto> allFertByCropIdDto = allFertByCropId.stream()
-  //        .map(FertilizersDto::toDto).collect(Collectors.toList());
-  //    return ResponseEntity.ok(allFertByCropIdDto).getBody();
-  //  }
+
+  @GetMapping("/{cropId}/fertilizers")
+  public ResponseEntity<?> getAllFertilizerbyCropId(
+      @PathVariable Long cropId
+  ) throws CropNotFoundException {
+    Optional<Crop> crop = cropService.getCropById(cropId);
+    if (crop.isEmpty()) {
+      throw new CropNotFoundException();
+    }
+    List<Fertilizer> listaFertilizantes = crop.get().getFertilizers();
+    return ResponseEntity.status(HttpStatus.OK).body(listaFertilizantes);
+
+
+  }
 
 
 }

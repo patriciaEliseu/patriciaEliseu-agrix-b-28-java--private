@@ -22,7 +22,7 @@ public class Fertilizer {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  
+
   private String name;
 
   private String brand;
@@ -94,4 +94,6 @@ public class Fertilizer {
   public void setCrops(List<Crop> crops) {
     this.crops = crops;
   }
+
+ 
 }
